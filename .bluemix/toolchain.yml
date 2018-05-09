@@ -13,11 +13,11 @@ template:
     - sample-repo
   info:
     git url: >-
-      [https://github.com/open-toolchain/simple-toolchain](https://github.com/open-toolchain/simple-toolchain)
+      [https://github.com/tysonrm/serverless-toolchain](https://github.com/tysonrm/serverless-toolchain)
     git branch: >-
-      [master](https://github.com/open-toolchain/simple-toolchain/tree/master)
+      [master](https://github.com/tysonrm/serverless-toolchain/tree/master)
 toolchain:
-  name: 'simple-toolchain-{{timestamp}}'
+  name: 'serverless-toolchain-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
