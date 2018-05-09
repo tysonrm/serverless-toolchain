@@ -1,7 +1,7 @@
-# serverless-toolchain
+# Serverless Toolchain
 IBM Cloud Functions Toolchain 
 
-This is the IBM Cloud DevOps toolchain for serverless, which ispreconfigured for continuous delivery, source control, issue tracking, and online editing.
+Manage IBM Cloud Functions in GitHub and deploy automatically on commit.
 
 To get started, click **Create toolchain**.
 
