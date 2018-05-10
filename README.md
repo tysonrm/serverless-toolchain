@@ -1,7 +1,7 @@
 # Serverless Toolchain
 IBM Cloud Functions Toolchain 
 
-Development serverless apps with IBM Cloud Functions and IBM DevOps.
+Develop serverless apps with IBM Cloud Functions and IBM DevOps. 
 
 To get started, click **Create toolchain**.
 
