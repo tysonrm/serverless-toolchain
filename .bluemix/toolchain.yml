@@ -54,4 +54,4 @@ form:
     parameters:
       prod-app-name: '{{services.sample-repo.parameters.repo_name}}'
     schema:
-$ref: deploy.json
+      $ref: deploy.json
