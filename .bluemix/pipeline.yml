@@ -1,6 +1,6 @@
 ---
 stages:
-- name: DEPLOY
+- name: deploy
   inputs:
   - type: git
     branch: master
@@ -15,7 +15,7 @@ stages:
     value: undefined
     type: text
   jobs:
-  - name: Blue-Green Deploy
+  - name: FaaS Deploy
     type: deployer
     target:
       region_id: ${PROD_REGION_ID}
@@ -24,29 +24,11 @@ stages:
       application: ${CF_APP_NAME}
     script: |
       #!/bin/bash
-      #  
-      if ! cf app $CF_APP; then  
-        cf push $CF_APP
-      else
-        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
-        rollback() {
-          set +e  
-          if cf app $OLD_CF_APP; then
-            cf logs $CF_APP --recent
-            cf delete $CF_APP -f
-            cf rename $OLD_CF_APP $CF_APP
-          fi
-          exit 1
-        }
-        set -e
-        trap rollback ERR
-        cf rename $CF_APP $OLD_CF_APP
-        cf push $CF_APP
-        cf delete $OLD_CF_APP -f
-      fi
-      # Export app name and URL for use in later Pipeline jobs
-      export CF_APP_NAME="$CF_APP"
-      export APP_URL=http://$(cf app $CF_APP_NAME | grep -e urls: -e routes: | awk '{print $2}')
-      # View logs
-      #cf logs "${CF_APP}" --recent
+      #bx plugin install cloud-functions -r Bluemix
+      bx login -a https://api.ng.bluemix.net --apikey $APIKEY -o tmidboe@us.ibm.com -s dev
+      bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
+      # now set up your actions etc
+      bx wsk action update action1 --kind nodejs:8 actions/action1.js
+      # check everything is as expected
+      bx wsk action list
       
