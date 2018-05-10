@@ -1,7 +1,7 @@
 # Serverless Toolchain
 IBM Cloud Functions Toolchain 
 
-Manage IBM Cloud Functions in GitHub and deploy automatically on commit.
+Development serverless apps with IBM Cloud Functions and IBM DevOps.
 
 To get started, click **Create toolchain**.
 
