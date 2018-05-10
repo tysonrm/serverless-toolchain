@@ -1,22 +1,12 @@
 ---
 stages:
-- name: BUILD
+- name: DEPLOY
   inputs:
   - type: git
     branch: master
     service: ${SAMPLE_REPO}
   triggers:
   - type: commit
-  jobs:
-  - name: Build
-    type: builder
-- name: DEPLOY
-  inputs:
-  - type: job
-    stage: BUILD
-    job: Build
-  triggers:
-  - type: stage
   properties:
   - name: CF_APP_NAME
     value: undefined
