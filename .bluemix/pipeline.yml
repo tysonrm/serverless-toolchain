@@ -27,7 +27,8 @@ stages:
       bx login -a https://api.ng.bluemix.net --apikey tGo1cqHBac2-QIHEOOr0s14M_075Z53Ikr1BEqgZKvVc -o tmidboe@us.ibm.com -s dev
       bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
       # now set up your actions etc
-      bx wsk action update action1 --kind nodejs:8 actions/action1.js
+      for i in `find -type f \( -name "*.js" -or -name "*.py" \)` ; do
+        bx wsk action update $i --kind nodejs:8 actions/$i;  done 
       # check everything is as expected
       bx wsk action list
       
