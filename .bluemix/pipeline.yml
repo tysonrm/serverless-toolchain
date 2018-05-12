@@ -35,7 +35,7 @@ stages:
         else
           kind="python:3"
         fi
-        bx wsk action update $name --kind $kind actions/$i
+        bx wsk action update $name --kind $kind $i
       done 
       # check everything is as expected
       bx wsk action list
