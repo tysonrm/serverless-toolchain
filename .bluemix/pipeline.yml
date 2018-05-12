@@ -28,8 +28,9 @@ stages:
       bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
       # now set up your actions etc
       for i in `find actions -type f \( -name "*.js" -or -name "*.py" \)` ; do
-        type=`echo $i | cut -d "." -f 2`
-        name=`echo $i | cut -d "." -f 1`
+        file=`echo $i | cut -d "/" -f 2`
+        type=`echo $file | cut -d "." -f 2`
+        name=`echo $file | cut -d "." -f 1`
         if [ $type == "js" ] ; then
           kind="nodejs:8"
         else
