@@ -49,6 +49,16 @@ services:
         execute: true
   webide:
     service_id: orion
+  servicenow:
+    service_id: customtool
+    parameters:
+      type: ServiceNow
+      lifecyclePhase: "MANAGE"
+      imageUrl: "https://cms3prod.service-now.com/favicon.ico"
+      documentationUrl: "https://docs.servicenow.com"
+      name: "ServiceNow"
+      dashboard_url: "https://cms3prod.service-now.com/"
+      description: "ServiceNow"
 form:
   pipeline:
     parameters:
