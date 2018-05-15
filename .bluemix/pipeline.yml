@@ -37,7 +37,7 @@ stages:
       echo "API_KEY=${API_KEY}"
       echo "PROD_ORG_NAME=${PROD_ORG_NAME}"
       echo "PROD_SPACE_NAME=${PROD_SPACE_NAME}"
-      bx login -a https://api.ng.bluemix.net --apikey ${API_KEY} -o %{PROD_ORG_NAME} -s ${PROD_SPACE_NAME}
+      bx login -a https://api.ng.bluemix.net --apikey ${API_KEY} -o ${PROD_ORG_NAME} -s ${PROD_SPACE_NAME}
       bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
       # now set up your actions etc
       for i in `find actions -type f \( -name "*.js" -or -name "*.py" \)` ; do
