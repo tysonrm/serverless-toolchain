@@ -14,6 +14,9 @@ stages:
   - name: APP_URL
     value: undefined
     type: text
+  - name: API_KEY
+    type: text
+    value: ${API_KEY}
   jobs:
   - name: FaaS Deploy
     type: deployer
@@ -25,7 +28,9 @@ stages:
       api_key: ${API_KEY}
     script: |
       #!/bin/bash
-      echo "API_KEY=%{API_KEY}"
+      echo "API_KEY=${API_KEY}"
+      echo "PROD_REGION_ID=${PROD_REGION_ID}"
+      echo "PROD_SPACE_NAME=${PROD_SPACE_NAME}"
       bx login -a https://api.ng.bluemix.net --apikey ${API_KEY} -o tmidboe@us.ibm.com -s dev
       bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
       # now set up your actions etc
