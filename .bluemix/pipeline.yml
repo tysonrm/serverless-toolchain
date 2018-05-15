@@ -8,12 +8,6 @@ stages:
   triggers:
   - type: commit
   properties:
-  - name: CF_APP_NAME
-    value: undefined
-    type: text
-  - name: APP_URL
-    value: undefined
-    type: text
   - name: API_KEY
     type: text
     value: ${API_KEY}
