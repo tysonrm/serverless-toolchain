@@ -14,7 +14,7 @@
     },
     "type": "object",
     "properties": {
-        {           
+        "api-key": {           
             "type": "password",
             "readonly": false,
             "title": {
