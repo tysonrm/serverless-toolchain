@@ -22,6 +22,7 @@ stages:
       organization: ${PROD_ORG_NAME}
       space: ${PROD_SPACE_NAME}
       application: ${CF_APP_NAME}
+      api_key: ${API_KEY}
     script: |
       #!/bin/bash
       bx login -a https://api.ng.bluemix.net --apikey tGo1cqHBac2-QIHEOOr0s14M_075Z53Ikr1BEqgZKvVc -o tmidboe@us.ibm.com -s dev
