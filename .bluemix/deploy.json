@@ -45,7 +45,8 @@
         "prod-region",
         "prod-organization",
         "prod-space",
-        "prod-app-name"
+        "prod-app-name",
+        "api-key"
     ],
     "form": [
         {
