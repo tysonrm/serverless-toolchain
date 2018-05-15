@@ -14,13 +14,12 @@
     },
     "type": "object",
     "properties": {
-        "api-key": {           
-            "type": "password",
-            "readonly": false,
-            "title": {
-              "$ref": "#/messages/deploy.apikey"
+        "api-key": {
+            "description": {
+              "$ref": "#/messages/deploy.apikeyDescription"
             },
-            "key": "api-key"
+            "type": "string",
+            "pattern": "\\S"
         },
         "prod-region": {
             "description": "The bluemix region",
@@ -60,6 +59,14 @@
                 "$ref": "#/messages/deploy.appName"
             },
             "key": "prod-app-name"
+        },
+        {
+            "type": "password",
+            "readonly": false,
+            "title": {
+              "$ref": "#/messages/deploy.apikey"
+            },
+            "key": "api-key"
         },
         {
             "type": "table",
