@@ -17,6 +17,12 @@ stages:
   - name: API_KEY
     type: text
     value: ${API_KEY}
+  - name: PROD_ORG_NAME
+    type: text
+    value: ${PROD_ORG_NAME}
+  - name: PROD_SPACE_NAME
+    type: text
+    value: ${PROD_SPACE_NAME}
   jobs:
   - name: FaaS Deploy
     type: deployer
@@ -29,9 +35,9 @@ stages:
     script: |
       #!/bin/bash
       echo "API_KEY=${API_KEY}"
-      echo "PROD_REGION_ID=${PROD_REGION_ID}"
+      echo "PROD_ORG_NAME=${PROD_ORG_NAME}"
       echo "PROD_SPACE_NAME=${PROD_SPACE_NAME}"
-      bx login -a https://api.ng.bluemix.net --apikey ${API_KEY} -o tmidboe@us.ibm.com -s dev
+      bx login -a https://api.ng.bluemix.net --apikey ${API_KEY} -o %{PROD_ORG_NAME} -s ${PROD_SPACE_NAME}
       bx wsk action invoke /whisk.system/utils/echo -p message hello --blocking --result
       # now set up your actions etc
       for i in `find actions -type f \( -name "*.js" -or -name "*.py" \)` ; do
